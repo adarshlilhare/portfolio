@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Lilhare | Portfolio</title>
+    <style>
+        /* General Reset & Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        nav h1 {
+            font-size: 24px;
+            color: #1a252f;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        nav ul li a {
+            color: #555;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Modern soft tech gradient */
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            padding: 0 20px;
+        }
+        #hero h1 {
+            font-size: 4rem;
+            color: #1a252f;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        #hero p {
+            font-size: 1.25rem;
+            color: #34495e;
+            margin-bottom: 30px;
+            max-width: 650px;
+        }
+        
+        /* Profile Buttons */
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .btn-linkedin { background: #0077b5; color: #fff; }
+        .btn-github { background: #24292e; color: #fff; }
+        .btn-codeforces { background: #1f8acb; color: #fff; }
+
+        /* Section Formatting */
+        section {
+            padding: 90px 50px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: #1a252f;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cards with Hover Effects */
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+            border-left: 6px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #1a252f;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .card span {
+            display: inline-block;
+            background: #ecf0f1;
+            padding: 5px 12px;
+            border-radius: 5px;
+            color: #2c3e50;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* Grid for Certifications */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .cert-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-top: 5px solid #2ecc71;
+            transition: transform 0.3s ease;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+        .cert-card h4 {
+            color: #1a252f;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        .cert-card p {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .skill-tag {
+            background: #fff;
+            color: #3498db;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .skill-tag:hover {
+            background: #3498db;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+        footer .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer a {
+            color: #3498db;
+            font-weight: bold;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Adarsh Lilhare</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <h1>Hi, I'm Adarsh Lilhare</h1>
+        <p>Aspiring Data Scientist & Software Engineer building innovative AI solutions, robust full-stack applications, and tackling complex algorithms.</p>
+        
+        <div class="btn-container">
+            <a href="https://www.linkedin.com/in/adarsh-lilhare-671715289/" target="_blank" class="btn btn-linkedin">LinkedIn</a>
+            <a href="https://github.com/adarshlilhare" target="_blank" class="btn btn-github">GitHub</a>
+            <a href="https://codeforces.com/profile/adarsh5000" target="_blank" class="btn btn-codeforces">Codeforces</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p style="text-align: center; max-width: 850px; margin: auto; font-size: 1.1rem; color: #34495e;">
+            I am a Computer Science and Engineering student at VIT Bhopal driven by a strong passion for Data Science, Artificial Intelligence, and Machine Learning. I enjoy building practical tools, exploring DevOps, integrating Web Service APIs, and translating complex concepts into clean, functional code using Python, C/C++, and JavaScript. Whether it's optimizing data structures or deploying AI bots, I thrive on solving hard technical problems.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        
+        <div class="card">
+            <h3>Fake News Sentence and Image Detector Bot</h3>
+            <span>AI/ML | Python, PyTorch, Hugging Face, GCP</span>
+            <p>Developed a Telegram bot that verifies news statements using the Google Search API, PyTorch, and a Hugging Face sentence-transformers model. It utilizes the Microsoft DeBERTa v3 model to evaluate semantic similarity and sentiment, while employing the Google Vision API to detect AI-generated or fake images based on web entity analysis.</p>
+        </div>
+
+        <div class="card">
+            <h3>Interactive Recipe Finder</h3>
+            <span>Python, Streamlit, Web Services APIs</span>
+            <p>Built an advanced interactive platform that provides recipes and generates cooking instructions using AI. The application performs image detection, supports voice-based search, and features multilingual capabilities, offering a seamless and intuitive user experience.</p>
+        </div>
+
+        <div class="card">
+            <h3>Vibes Music Player</h3>
+            <span>Node.js, Express, MongoDB, Spotify API</span>
+            <p>Created a web application that allows users to search for songs, listen to previews, and manage their playlists. Integrated the Spotify Web API with a robust backend to provide a seamless music experience, featuring user authentication and listening history tracking.</p>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Licenses & Certifications</h2>
+        <div class="grid-container">
+            <div class="cert-card">
+                <h4>The Bits and Bytes of Computer Networking</h4>
+                <p>Google</p>
+            </div>
+            <div class="cert-card">
+                <h4>NPTEL Machine Learning Certification</h4>
+                <p>Indian Institute of Technology, Madras</p>
+            </div>
+            <div class="cert-card">
+                <h4>AWS Technical Essentials</h4>
+                <p>Amazon Web Services (AWS)</p>
+            </div>
+            <div class="cert-card">
+                <h4>DevOps Fundamentals & Agile Design Thinking</h4>
+                <p>IBM Career Education</p>
+            </div>
+            <div class="cert-card">
+                <h4>Industrial IoT Markets and Security</h4>
+                <p>University of Colorado Boulder</p>
+            </div>
+            <div class="cert-card">
+                <h4>Course Certificate in Python, C, C++, HTML, CSS & Linux</h4>
+                <p>Cybrom Technology Pvt. Ltd</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <h2>Experience & Education</h2>
+        
+        <div class="card">
+            <h3>Google Cloud Generative AI Virtual Intern</h3>
+            <span>SmartInternz | Nov 2025 - Jan 2026</span>
+            <p>Explored and implemented Generative AI solutions using Google Cloud technologies including Vertex AI, LLMs, and Retrieval-Augmented Generation (RAG).</p>
+        </div>
+
+        <div class="card">
+            <h3>IBM CDC Summer Intern</h3>
+            <span>Adroit Tech and Innovations | May 2025 - Jun 2025</span>
+            <p>Developed technical skills in DevOps and engaged in hands-on learning within a professional environment during a focused summer internship program.</p>
+        </div>
+
+        <div class="card">
+            <h3>B.Tech in Computer Science and Engineering</h3>
+            <span>VIT Bhopal University | Expected Graduation: May 2027</span>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">Python & C/C++</div>
+            <div class="skill-tag">Machine Learning & MLOps</div>
+            <div class="skill-tag">Generative AI & LLMs</div>
+            <div class="skill-tag">PyTorch & Scikit-Learn</div>
+            <div class="skill-tag">Hugging Face</div>
+            <div class="skill-tag">Google Cloud Platform (GCP)</div>
+            <div class="skill-tag">Amazon Web Services (AWS)</div>
+            <div class="skill-tag">DevOps & Agile</div>
+            <div class="skill-tag">JavaScript / Node.js / Express</div>
+            <div class="skill-tag">MongoDB</div>
+            <div class="skill-tag">Web Services API Integration</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Adarsh Lilhare. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/adarsh-lilhare-671715289/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/adarshlilhare" target="_blank">GitHub</a>
+            <a href="https://codeforces.com/profile/adarsh5000" target="_blank">Codeforces</a>
+        </div>
+    </footer>
+
+</body>
+</html>
